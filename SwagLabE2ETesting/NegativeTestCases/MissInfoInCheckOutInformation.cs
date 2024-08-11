@@ -7,7 +7,7 @@ namespace SwagLabE2ETesting.NegativeTestCases;
 public class MissInfoInCheckOutInformation : Setup
 {
     [Test]
-    public void MissFirsTName()
+    public void MissFirstName()
     {
         // Log in first
         Login();
