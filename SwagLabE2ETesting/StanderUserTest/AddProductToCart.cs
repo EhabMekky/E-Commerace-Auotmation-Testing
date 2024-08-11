@@ -11,14 +11,8 @@ public class AddProductToCartAndCheckOut : Setup
     [Test]
     public void AddItemsAndCheckCartOut()
     {
-        #region Log in
-
         // Log in first
-        _driver.FindElement(By.Id("user-name")).SendKeys("standard_user");
-        _driver.FindElement(By.Id("password")).SendKeys("secret_sauce");
-        _driver.FindElement(By.Id("login-button")).Click();
-
-        #endregion
+        Login();
         
         WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(5));
 

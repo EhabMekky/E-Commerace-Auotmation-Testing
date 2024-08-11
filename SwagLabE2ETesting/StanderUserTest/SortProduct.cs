@@ -12,14 +12,8 @@ public class SortProduct : Setup
    [Test]
    public void SortProductTest()
    {
-       #region Log in
-
        // Log in first
-       _driver.FindElement(By.Id("user-name")).SendKeys("standard_user");
-       _driver.FindElement(By.Id("password")).SendKeys("secret_sauce");
-       _driver.FindElement(By.Id("login-button")).Click();
-
-       #endregion
+        Login();
        
        // Access the sort dropdown
        SelectElement dropDown = new SelectElement(_driver.FindElement(By.ClassName("product_sort_container")));

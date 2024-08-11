@@ -10,9 +10,7 @@ public class LogOut : Setup
     public void LogOutTest()
     {
         // Log in first
-        _driver.FindElement(By.Id("user-name")).SendKeys("standard_user");
-        _driver.FindElement(By.Id("password")).SendKeys("secret_sauce");
-        _driver.FindElement(By.Id("login-button")).Click();
+        Login();
         
         // Log out
         _driver.FindElement(By.Id("react-burger-menu-btn")).Click();
