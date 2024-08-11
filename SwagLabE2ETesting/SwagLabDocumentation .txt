@@ -1,0 +1,233 @@
+1. Introduction
+This document outlines the automation tests designed to verify the key functionalities of the SauceDemo website. 
+The tests cover a comprehensive set of scenarios, including user login, sorting, cart operations, 
+and error handling during login and checkout processes.
+
+2. Test Environment
+URL: https://www.saucedemo.com/
+Browser: Google Chrome
+Automation Tool: Selenium WebDriver
+Programming Language: C#
+Test Framework: NUnit
+
+--------------------------------------------------
+3. Test Cases:
+
+Test Case 1: Setup Test
+Objective: Initialize the test environment by setting up the browser and navigating to the SauceDemo website.
+
+Preconditions:
+
+Selenium WebDriver and NUnit are properly configured.
+
+Test Steps:
+Initialize the ChromeDriver.
+Navigate to https://www.saucedemo.com/.
+Maximize the browser window.
+
+Expected Result:
+The browser should open, and the SauceDemo login page should be displayed.
+----------------------------------------------------------------------------
+
+Test Case 2: Login with Correct Data
+Objective: Verify that a user can successfully log in with valid credentials.
+
+Preconditions:
+User is on the SauceDemo login page.
+Test Steps:
+Enter standard_user in the Username field.
+Enter secret_sauce in the Password field.
+Click the Login button.
+Expected Result:
+The user should be redirected to the Inventory page (/inventory.html).
+-------------------------------------------------------------------------
+
+Test Case 3: Check Sorting
+Objective: Verify that the sorting functionality on the inventory page works as expected.
+Preconditions:
+User is logged in and on the Inventory page.
+Test Steps:
+Select a sorting option from the dropdown (e.g., Price: Low to High, Z to A).
+Expected Result:
+The items should be sorted according to the selected option.
+--------------------------------------------------------------------------
+
+Test Case 4: Add Product to Cart
+Objective: Verify that a user can add products to the cart.
+
+Preconditions:
+User is logged in and on the Inventory page.
+Test Steps:
+Click on the "Add to cart" button for a product (e.g., Sauce Labs Onesie).
+Verify that the cart badge updates to reflect the added item.
+Expected Result:
+The cart badge should display the correct number of items added.
+-----------------------------------------------------------------------
+
+Test Case 5: Checkout Cart
+Objective: Verify that the user can successfully check out after adding products to the cart.
+
+Preconditions:
+User has items in the cart.
+Test Steps:
+Click on the shopping cart icon.
+Click the Checkout button.
+Enter the required checkout information (first name, last name, postal code).
+Click the Continue button.
+Click the Finish button.
+Expected Result:
+The user should see a confirmation message: "THANK YOU FOR YOUR ORDER."
+------------------------------------------------------------------
+
+Test Case 6: Remove Products from Cart
+Objective: Verify that a user can remove products from the cart.
+
+Preconditions:
+User has items in the cart.
+Test Steps:
+Click on the shopping cart icon.
+Click the "Remove" button for each product in the cart.
+Expected Result:
+The cart should be empty after removing all products.
+-------------------------------------------------------------------------
+
+Test Case 7: Logout
+Objective: Verify that the user can successfully log out.
+
+Preconditions:
+User is logged in.
+Test Steps:
+Click on the menu button.
+Click the Logout button.
+Expected Result:
+The user should be redirected to the login page.
+----------------------------------------------------------------------------
+
+Test Case 8: Login with Invalid Username
+Objective: Verify that the user cannot log in with an incorrect username.
+
+Preconditions:
+User is on the SauceDemo login page.
+Test Steps:
+Enter an invalid username in the Username field.
+Enter secret_sauce in the Password field.
+Click the Login button.
+Expected Result:
+An error message should be displayed: "Epic sadface: Username and password do not match any user in this service."
+----------------------------------------------------------------------------------------------------------------
+
+Test Case 9: Login with Invalid Password
+Objective: Verify that the user cannot log in with an incorrect password.
+
+Preconditions:
+User is on the SauceDemo login page.
+Test Steps:
+Enter standard_user in the Username field.
+Enter an invalid password in the Password field.
+Click the Login button.
+Expected Result:
+An error message should be displayed: "Epic sadface: Username and password do not match any user in this service."
+-------------------------------------------------------------------------------------------------------------------
+
+Test Case 10: Login with Blank Username and Password
+Objective: Verify that the user cannot log in with blank username and password fields.
+
+Preconditions:
+User is on the SauceDemo login page.
+Test Steps:
+Leave both the Username and Password fields blank.
+Click the Login button.
+Expected Result:
+An error message should be displayed: "Epic sadface: Username is required."
+---------------------------------------------------------------------------------------------------------------------
+
+Test Case 11: Login with Username Only
+Objective: Verify that the user cannot log in by entering only the username.
+
+Preconditions:
+User is on the SauceDemo login page.
+Test Steps:
+Enter standard_user in the Username field.
+Leave the Password field blank.
+Click the Login button.
+Expected Result:
+An error message should be displayed: "Epic sadface: Password is required."
+-----------------------------------------------------------------------------------------
+Test Case 12: Login with Password Only
+Objective: Verify that the user cannot log in by entering only the password.
+
+Preconditions:
+User is on the SauceDemo login page.
+Test Steps:
+Leave the Username field blank.
+Enter secret_sauce in the Password field.
+Click the Login button.
+Expected Result:
+An error message should be displayed: "Epic sadface: Username is required."
+-------------------------------------------------------------------------------------
+
+Test Case 13: Login as Locked-Out User
+Objective: Verify that a locked-out user cannot log in.
+
+Preconditions:
+User is on the SauceDemo login page.
+Test Steps:
+Enter locked_out_user in the Username field.
+Enter secret_sauce in the Password field.
+Click the Login button.
+Expected Result:
+An error message should be displayed: "Epic sadface: Sorry, this user has been locked out."
+--------------------------------------------------------------------------------------------
+
+Test Case 14: Checkout with Missing First Name
+Objective: Verify that the checkout process cannot proceed without a first name.
+
+Preconditions:
+User is at the checkout page.
+Test Steps:
+Leave the First Name field blank.
+Enter valid values for Last Name and Postal Code.
+Click the Continue button.
+Expected Result:
+An error message should be displayed: "Error: First Name is required."
+------------------------------------------------------------------------------------------------
+
+Test Case 15: Checkout with Missing Last Name
+Objective: Verify that the checkout process cannot proceed without a last name.
+
+Preconditions:
+User is at the checkout page.
+Test Steps:
+Enter a valid first name.
+Leave the Last Name field blank.
+Enter a valid postal code.
+Click the Continue button.
+Expected Result:
+An error message should be displayed: "Error: Last Name is required."
+---------------------------------------------------------------------------------------------
+
+Test Case 16: Checkout with Missing Postal Code
+Objective: Verify that the checkout process cannot proceed without a postal code.
+
+Preconditions:
+User is at the checkout page.
+Test Steps:
+Enter valid values for First Name and Last Name.
+Leave the Postal Code field blank.
+Click the Continue button.
+Expected Result:
+An error message should be displayed: "Error: Postal Code is required."
+
+------------------------------------------------------------------------------------
+
+
+4. Conclusion
+This document outlines the automation test cases designed to thoroughly test the SauceDemo website's core functionalities, 
+including login, sorting, cart operations, and form validation. 
+By covering a wide range of scenarios, these tests ensure that the application
+
+
+
+
+
+
