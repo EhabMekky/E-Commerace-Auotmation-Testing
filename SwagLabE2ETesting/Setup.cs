@@ -4,12 +4,12 @@ using OpenQA.Selenium.Chrome;
 
 namespace SwagLabE2ETesting
 {
-    [TestClass]
     public class Setup
     {
-        private IWebDriver _driver;
-        private readonly bool _closeBrowser = false;
-        [TestMethod]
+        protected IWebDriver _driver;
+        protected readonly bool _closeBrowser = false;
+        
+        [SetUp]
         public void StartBrowser()
         {
             _driver = new ChromeDriver();
