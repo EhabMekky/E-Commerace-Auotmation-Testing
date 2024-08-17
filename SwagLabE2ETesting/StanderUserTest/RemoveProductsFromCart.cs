@@ -19,7 +19,6 @@ public class RemoveProductsFromCart : Setup
         foreach (var item in productList)
         {
             _driver.FindElement(By.Name(item)).Click();
-            Thread.Sleep(3000);
         }
 
         // Verify the shopping cart badge have 2 items
@@ -27,7 +26,6 @@ public class RemoveProductsFromCart : Setup
         
         // Check cart after adding
         _driver.FindElement(By.ClassName("shopping_cart_link")).Click();
-        Thread.Sleep(3000);
 
         wait.Until(d=>d.FindElement(By.Id("remove-sauce-labs-onesie")));
         string[] removeItems = { "remove-sauce-labs-onesie","remove-sauce-labs-bike-light" };
@@ -35,8 +33,10 @@ public class RemoveProductsFromCart : Setup
         foreach (var item in removeItems)
         {
             _driver.FindElement(By.Id(item)).Click();
-            Thread.Sleep(3000);
         }
+        
+        // Verify the shopping cart badge have 0 items
+        Assert.AreEqual("0", _driver.FindElement(By.ClassName("shopping_cart_badge")).Text);
     }
 
 }
